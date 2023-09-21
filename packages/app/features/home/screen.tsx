@@ -14,29 +14,32 @@ import React, { useState } from 'react'
 import { useLink } from 'solito/link'
 
 export function HomeScreen() {
-  const linkProps = useLink({
+  const toUserScreen = useLink({
+    href: '/user/devkoalaa',
+  })
+
+  const toLoginScreen = useLink({
     href: '/login',
   })
 
   return (
     <YStack f={1} jc="center" ai="center" p="$4" space>
       <YStack space="$4" maw={600}>
-        <H1 ta="center">Welcome to Tamagui.</H1>
+        <H1 ta="center">Bem vindo, Koala.</H1>
         <Paragraph ta="center">
-          Here's a basic starter to show navigating from one screen to another. This screen uses the
-          same code on Next.js and React Native.
+          Essa é a dashboard inicial!
         </Paragraph>
 
         <Separator />
         <Paragraph ta="center">
           Made by{' '}
           <Anchor color="$color12" href="https://twitter.com/natebirdman" target="_blank">
-            @natebirdman
+            @devkoalaa
           </Anchor>
           ,{' '}
           <Anchor
             color="$color12"
-            href="https://github.com/tamagui/tamagui"
+            href="https://github.com/devkoalaa"
             target="_blank"
             rel="noreferrer"
           >
@@ -45,8 +48,9 @@ export function HomeScreen() {
         </Paragraph>
       </YStack>
 
-      <XStack>
-        <Button {...linkProps}>Link to user</Button>
+      <XStack space={6}>
+        <Button {...toUserScreen}>User</Button>
+        <Button {...toLoginScreen}>Login</Button>
       </XStack>
 
       <SheetDemo />
